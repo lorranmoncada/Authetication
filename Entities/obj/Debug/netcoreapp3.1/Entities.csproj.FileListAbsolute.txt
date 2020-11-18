@@ -1,0 +1,9 @@
+C:\Pitang\Authentication\Entities\bin\Debug\netcoreapp3.1\Entities.deps.json
+C:\Pitang\Authentication\Entities\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Pitang\Authentication\Entities\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Pitang\Authentication\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfoInputs.cache
+C:\Pitang\Authentication\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
+C:\Pitang\Authentication\Entities\obj\Debug\netcoreapp3.1\Entities.dll
+C:\Pitang\Authentication\Entities\obj\Debug\netcoreapp3.1\Entities.pdb
+C:\Pitang\Authentication\Entities\obj\Debug\netcoreapp3.1\Entities.csproj.CoreCompileInputs.cache
+C:\Pitang\Authentication\Entities\obj\Debug\netcoreapp3.1\Entities.csprojAssemblyReference.cache

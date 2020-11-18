@@ -1,0 +1,14 @@
+C:\Pitang\Authentication\Infraestructure\obj\Debug\netcoreapp3.1\Infraestructure.csprojAssemblyReference.cache
+C:\Pitang\Authentication\Infraestructure\obj\Debug\netcoreapp3.1\Infraestructure.AssemblyInfoInputs.cache
+C:\Pitang\Authentication\Infraestructure\obj\Debug\netcoreapp3.1\Infraestructure.AssemblyInfo.cs
+C:\Pitang\Authentication\Infraestructure\bin\Debug\netcoreapp3.1\Infraestructure.deps.json
+C:\Pitang\Authentication\Infraestructure\bin\Debug\netcoreapp3.1\Infraestructure.dll
+C:\Pitang\Authentication\Infraestructure\bin\Debug\netcoreapp3.1\Infraestructure.pdb
+C:\Pitang\Authentication\Infraestructure\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Pitang\Authentication\Infraestructure\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Pitang\Authentication\Infraestructure\obj\Debug\netcoreapp3.1\Infraestructure.csproj.CopyComplete
+C:\Pitang\Authentication\Infraestructure\obj\Debug\netcoreapp3.1\Infraestructure.dll
+C:\Pitang\Authentication\Infraestructure\obj\Debug\netcoreapp3.1\Infraestructure.pdb
+C:\Pitang\Authentication\Infraestructure\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Pitang\Authentication\Infraestructure\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Pitang\Authentication\Infraestructure\obj\Debug\netcoreapp3.1\Infraestructure.csproj.CoreCompileInputs.cache
