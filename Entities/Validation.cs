@@ -8,26 +8,14 @@ namespace Entities
    public class Validation
     {
 
-        public Validation()
-        {
-            LstNotifies = new List<Validation>();
-        }
+        public  string NomePropriedade { get; set; }
 
-        [NotMapped]
-        public string NomePropriedade { get; set; }
+        public  string Mensagem { get; set; }
 
-        [NotMapped]
-        public string Mensagem { get; set; }
-
-        [NotMapped]
-        public List<Validation> LstNotifies;
-
-        public bool ValidaPropriedadeString(string valor, string nomePropriedade)
+        public static bool ValidaPropriedadeString(string valor, string nomePropriedade)
         {
             if (string.IsNullOrWhiteSpace(valor) || string.IsNullOrWhiteSpace(nomePropriedade))
-            {
-                LstNotifies.Add(new Validation { Mensagem = "Campo Obrigatório", NomePropriedade = nomePropriedade });
-
+            {   
                 return false;
             }
 

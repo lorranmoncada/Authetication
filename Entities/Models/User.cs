@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entites
 {
-    public class User: Validation
+    public class User
     {
         public User()
         {

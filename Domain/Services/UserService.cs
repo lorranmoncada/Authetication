@@ -2,6 +2,7 @@
 using Domain.Interfaces;
 using Entites;
 using Entites.Models;
+using Entities;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,10 +22,10 @@ namespace Domain.Services
         public async Task<User> CreateUser(User user, List<Telephone> phones)
         {
 
-            var firtsName = user.ValidaPropriedadeString(user.FirstName, "firstName");
-            var lastName = user.ValidaPropriedadeString(user.LastName, "lastName");
-            var password = user.ValidaPropriedadeString(user.PassWord, "password");
-            var email = user.ValidaPropriedadeString(user.Email, "email");
+            var firtsName = Validation.ValidaPropriedadeString(user.FirstName, "firstName");
+            var lastName = Validation.ValidaPropriedadeString(user.LastName, "lastName");
+            var password = Validation.ValidaPropriedadeString(user.PassWord, "password");
+            var email = Validation.ValidaPropriedadeString(user.Email, "email");
 
             if (firtsName && lastName && password && email)
             {
@@ -65,8 +66,8 @@ namespace Domain.Services
 
         public async Task<User> Login(UserLogin user)
         {
-            var email = user.ValidaPropriedadeString(user.Email, "Email");
-            var password = user.ValidaPropriedadeString(user.PassWord, "PassWord");
+            var email = Validation.ValidaPropriedadeString(user.Email, "Email");
+            var password = Validation.ValidaPropriedadeString(user.PassWord, "PassWord");
 
             if (email && password)
             {
