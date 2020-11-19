@@ -8,6 +8,7 @@ using Domain.Interfaces;
 using Domain.Services;
 using Entites;
 using Entites.Models;
+using Entities;
 using Infraestructure.Configuration;
 using Infraestructure.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -29,9 +30,10 @@ namespace Authentication
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -39,6 +41,7 @@ namespace Authentication
             services.AddDbContext<ContextBase>(opt => opt.UseInMemoryDatabase(databaseName: "InMemoryDb"), ServiceLifetime.Scoped, ServiceLifetime.Scoped);
             services.AddHttpContextAccessor();
             services.AddScoped<DbContext, ContextBase>();
+            services.Configure<ConfigsSettings>(Configuration.GetSection("AppSettings"));
             services.AddCors();
             services.AddControllers();
 
@@ -71,6 +74,12 @@ namespace Authentication
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var builder = new ConfigurationBuilder()
+           .SetBasePath(env.ContentRootPath)
+           .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            Configuration = builder.Build();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -10,11 +10,13 @@ using Domain.Interfaces;
 using Domain.Services;
 using Entites;
 using Entites.Models;
+using Entities;
 using Entities.Models;
 using Infraestructure.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace Authentication.Controllers
@@ -25,9 +27,11 @@ namespace Authentication.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _IUserService;
-        public UserController(IUserService IUserService)
+        private readonly IOptions<ConfigsSettings> _Config;
+        public UserController(IUserService IUserService, IOptions<ConfigsSettings> config)
         {
             _IUserService = IUserService;
+            _Config = config;
         }
 
         [HttpGet]
@@ -80,7 +84,7 @@ namespace Authentication.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { message = ex.Message ?? "Could not create user", erroCorde = "400" });
+                return BadRequest(new { message = ex.Message ?? "Could not create user", erroCorde = "400" });
             }
         }
 
@@ -99,7 +103,7 @@ namespace Authentication.Controllers
                 }
 
                 usuario.PassWord = "";
-                var getToken = TokenService.SetToken(usuario);
+                var getToken = TokenService.SetToken(usuario, _Config);
 
                 return Ok(new
                 {
@@ -119,7 +123,7 @@ namespace Authentication.Controllers
             }
             catch
             {
-                return Json(new { message = "Unable to login", erroCorde = "400" });
+                return BadRequest(new { message = "Unable to login", erroCorde = "400" });
             }
         }
     }

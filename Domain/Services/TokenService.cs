@@ -1,5 +1,7 @@
 ﻿using Authentication;
 using Entites;
+using Entities;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -11,10 +13,11 @@ namespace Domain.Services
 {
     public static class TokenService
     {
-        public static string SetToken(User usuario)
+        public static string SetToken(User usuario, IOptions<ConfigsSettings> config)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            var keySecutity = config.Value.SecuretKey;
+            var key = Encoding.ASCII.GetBytes(keySecutity);
             var tokenDescricao = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
