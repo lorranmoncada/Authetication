@@ -50,7 +50,8 @@ namespace Authentication
             //Repository
             services.AddSingleton<IUserRepository, UserRepository>();
 
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            ConfigsSettings teste = Configuration.GetSection("AppSettings").Get<ConfigsSettings>();
+            var key = Encoding.ASCII.GetBytes(teste.SecuretKey);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -39,23 +39,30 @@ namespace Authentication.Controllers
         [Authorize]
         public async Task<IActionResult> LoginByHeader([FromHeader(Name = "Authorization")] string authorization)
         {
-
-            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            var usuario = await _IUserService.GetUser(Convert.ToInt64(id));
-
-
-            return Ok(new
+            try
             {
-                Id = usuario.Id,
-                FirstName = usuario.FirstName,
-                LastName = usuario.LastName,
-                Email = usuario.Email,
-                PassWord = usuario.PassWord,
-                Created_At = usuario.Created_At,
-                Last_Login = usuario.Last_Login,
-                Phones = usuario.Phones
-            });
+                var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                var usuario = await _IUserService.GetUser(Convert.ToInt64(id));
+
+
+                return Ok(new
+                {
+                    Id = usuario.Id,
+                    FirstName = usuario.FirstName,
+                    LastName = usuario.LastName,
+                    Email = usuario.Email,
+                    PassWord = usuario.PassWord,
+                    Created_At = usuario.Created_At,
+                    Last_Login = usuario.Last_Login,
+                    Phones = usuario.Phones
+                });
+            }
+            catch
+            {
+                return Unauthorized(new { message = "User Unauthorized", erroCorde = "401" });
+            }
+           
         }
 
 
